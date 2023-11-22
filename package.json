@@ -1,0 +1,39 @@
+{
+  "name": "nfteeshirt-signature-api",
+  "version": "0.0.1",
+  "description": "Express.JS API Boilerplate using Sequelize for ORM",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --timeout 10000 --exit"
+  },
+  "author": "Fatan Aminullah <fatan.aminullah.j@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@ethersproject/contracts": "^5.5.0",
+    "@ethersproject/providers": "^5.5.0",
+    "@ethersproject/wallet": "^5.5.0",
+    "@metamask/eth-sig-util": "^4.0.1",
+    "apicache": "^1.5.3",
+    "axios": "^0.20.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "eth-sig-util": "^3.0.1",
+    "ethereumjs-util": "^7.1.5",
+    "express": "^4.17.1",
+    "express-bearer-token": "^2.4.0",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.2.0",
+    "moment": "^2.29.1",
+    "morgan-body": "^2.5.1",
+    "mysql2": "^2.3.3",
+    "pg": "^8.3.3",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.1.6",
+    "uuid": "^8.3.0"
+  }
+}

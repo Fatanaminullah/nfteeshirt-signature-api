@@ -32,19 +32,6 @@ const abi = [
   },
 ];
 
-const mappingCollectionAddress = (collection) => {
-  switch (collection) {
-    case "karafuru":
-      return config.contractAddress;
-    case "furu-spirits":
-      return config.contractAddressSpirits;
-    case "karafuru-x-hypebeast-x-atmos":
-      return config.contractAddress3d;
-    default:
-      return config.contractAddress;
-  }
-};
-
 // Get owner address of token id
 exports.getOwnerOf = async (tokenId, contractAddress) => {
   const provider = new InfuraProvider(config.projectNetwork, config.projectId);

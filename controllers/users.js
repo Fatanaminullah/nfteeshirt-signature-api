@@ -1,6 +1,6 @@
 "use strict";
 
-const { users } = require("../components/database");
+const users = require("../models").users;
 const response = require("../components/response");
 const jwt = require("jsonwebtoken");
 const { bufferToHex } = require("ethereumjs-util");
@@ -18,7 +18,7 @@ exports.signIn = (req, res) => {
       response.res200(res, result);
     })
     .catch((err) => {
-      return response.res500(res, JSON.stringify(err));
+      return response.res500(res, JSON.stringify(err.message));
     });
 };
 

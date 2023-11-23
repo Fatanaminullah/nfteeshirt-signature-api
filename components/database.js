@@ -8,7 +8,13 @@ const { Sequelize, DataTypes } = require("sequelize");
 //     timezone: '+07:00'
 // });
 
-const maindb = new Sequelize("sqlite::memory:");
+var maindb = new Sequelize("example", "root", "", {
+  host: "localhost",
+  dialect: "sqlite",
+  operatorsAliases: false,
+  // SQLite database path
+  storage: "./data/database.sqlite",
+});
 
 const users = require("../models/users");
 

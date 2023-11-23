@@ -3,7 +3,7 @@ module.exports = function (Sequelize, DataTypes) {
     "users",
     {
       id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         field: "id",
         primaryKey: true,
         allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function (Sequelize, DataTypes) {
       },
       nonce: {
         allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
         defaultValue: () => Math.floor(Math.random() * 1000000),
       },
       wallet_address: {

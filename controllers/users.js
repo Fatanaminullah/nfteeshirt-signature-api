@@ -44,11 +44,12 @@ exports.signUp = (req, res) => {
 
 exports.signatureVerification = (req, res) => {
   const { wallet_address, signature } = req.body;
+  const address = wallet_address.toLowerCase();
   if (!wallet_address || !signature) {
     response.res400(res, "Wallet Addres and Signature are required");
   } else {
     users
-      .findOne({ where: { wallet_address } })
+      .findOne({ where: { wallet_address: address } })
       .then((userResult) => {
         if (!userResult) {
           return response.res404(res, "User Not Found");
@@ -66,8 +67,6 @@ exports.signatureVerification = (req, res) => {
           sig: signature,
         });
 
-        console.log("address", address);
-
         // The signature verification is successful if the address found with
         // sigUtil.recoverPersonalSignature matches the initial wallet_address
         if (address.toLowerCase() === wallet_address.toLowerCase()) {
@@ -77,7 +76,6 @@ exports.signatureVerification = (req, res) => {
         }
       })
       .then((user) => {
-        console.log("user", user);
         user.nonce = Math.floor(Math.random() * 10000);
         return user.save();
       })
@@ -110,7 +108,6 @@ exports.signatureVerification = (req, res) => {
         response.res200(res, token);
       })
       .catch((error) => {
-        console.log("error verify", error);
         response.res500(res);
       });
   }
